@@ -1,0 +1,270 @@
+
+/* ------------------------------
+   Reset & Base
+------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #333;
+  background-color: #fff;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* ------------------------------
+   Header & Navigation
+------------------------------ */
+.site-header {
+  background-color: #c80000;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0em 0em;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0.3em; /* 좌우 여백 주고 margin-right 제거 */
+}
+
+.logo {
+  height: 48px;
+  flex-shrink: 0;
+}
+
+.logo img {
+  height: 100%;      /* 부모 높이에 꽉 차도록 */
+  width: auto;       /* 가로는 비율 유지 */
+  display: block;
+}
+
+.branch-name {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  flex: 1;
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  padding: 0.3em;
+}
+
+/* 모바일 내비게이션 */
+.mobile-nav {
+  display: none;
+  background-color: #c80000;
+  flex-direction: column;
+}
+
+.mobile-nav.active {
+  display: flex;
+}
+
+.mobile-nav ul {
+  width: 100%;
+}
+
+.mobile-nav li {
+  border-top: 1px solid rgba(255,255,255,0.2);
+  padding: 0.8em 1.2em;
+}
+
+.mobile-nav a {
+  color: white;
+  font-weight: 500;
+}
+
+/* ------------------------------
+   Main Visual
+------------------------------ */
+.main-visual {
+  background: url('../images/visual-bg.jpg') no-repeat center/cover;
+  color: white;
+  text-align: center;
+  padding: 4em 1em;
+}
+
+.main-visual h2 {
+  font-size: 2rem;
+  margin-bottom: 1em;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+}
+
+.cta-buttons .btn {
+  background: white;
+  color: #c80000;
+  padding: 0.8em 1.5em;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.cta-buttons .btn:hover {
+  background: #f5f5f5;
+}
+
+/* ------------------------------
+   Products
+------------------------------ */
+.branch-products {
+  max-width: 1200px;
+  margin: 2em auto;
+  padding: 1em;
+  text-align: center;
+}
+
+.product-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fafafa;
+  overflow: hidden;
+}
+
+.product-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.product-card p {
+  padding: 0.8em;
+  font-weight: bold;
+}
+
+/* ------------------------------
+   Quick Contact
+------------------------------ */
+.quick-contact {
+  background: #f5f5f5;
+  padding: 2em 1em;
+  text-align: center;
+}
+
+.contact-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+}
+
+.contact-buttons .btn {
+  background: #c80000;
+  color: white;
+  padding: 0.8em 1.5em;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.contact-buttons .btn:hover {
+  background: #a50000;
+}
+
+/* ------------------------------
+   Reviews
+------------------------------ */
+.customer-reviews {
+  max-width: 800px;
+  margin: 2em auto;
+  padding: 1em;
+}
+
+.review-list p {
+  background: #f5f5f5;
+  padding: 1em;
+  border-radius: 10px;
+  margin-bottom: 1em;
+}
+
+/* ------------------------------
+   Location
+------------------------------ */
+.location {
+  max-width: 1200px;
+  margin: 2em auto;
+  padding: 1em;
+}
+
+.map iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+}
+
+/* ------------------------------
+   Footer
+------------------------------ */
+.site-footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 1em;
+  font-size: 0.9em;
+}
+
+/* ------------------------------
+   Responsive (PC)
+------------------------------ */
+@media screen and (min-width: 768px) {
+  .cta-buttons,
+  .contact-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .product-cards {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .mobile-nav {
+    display: none !important;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .logo img {
+    max-width: 180px;
+  }
+
+  .branch-name {
+    font-size: 1.1rem;
+  }
+}
