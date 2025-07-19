@@ -51,7 +51,7 @@ function setupCarousel() {
   const nextBtn = document.querySelector(".carousel-next");
 
   let current = 0;
-  let interval = setInterval(nextSlide, 5000);
+  let interval = setInterval(nextSlide, 3500);
 
   function showSlide(index) {
     slides.forEach((slide, i) => {
@@ -88,12 +88,27 @@ function setupCarousel() {
 
   function resetInterval() {
     clearInterval(interval);
-    interval = setInterval(nextSlide, 5000);
+    interval = setInterval(nextSlide, 3500);
   }
 
   showSlide(0); // 초기화
 }
 
+// 5. 모달 창 기능
 document.addEventListener("DOMContentLoaded", () => {
   setupCarousel();
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const modal = document.getElementById("reserve-modal");
+  const openBtn = document.getElementById("open-reserve-modal");
+  const closeBtn = document.getElementById("close-modal");
+
+  if (openBtn && modal && closeBtn) {
+    openBtn.addEventListener("click", () => modal.style.display = "block");
+    closeBtn.addEventListener("click", () => modal.style.display = "none");
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) modal.style.display = "none";
+    });
+  }
+});
+

@@ -217,35 +217,174 @@ ul {
 /* ------------------------------
    Products
 ------------------------------ */
-.branch-products {
-  max-width: 1200px;
-  margin: 2em auto;
-  padding: 1em;
+/* ✅ A안: 상단 이미지 카드 스타일 */
+.branch-featured-a {
+  padding: 2em 1em;
   text-align: center;
 }
 
-.product-cards {
+.feature-cards-a {
   display: flex;
   flex-direction: column;
   gap: 1em;
 }
 
-.product-card {
-  border: 1px solid #ddd;
+.feature-card-a {
+  background-color: #fff;
   border-radius: 10px;
-  background: #fafafa;
   overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s;
 }
 
-.product-card img {
+.feature-card-a:hover {
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card-a img {
   width: 100%;
-  height: 150px;
+  height: 120px;
   object-fit: cover;
 }
 
-.product-card p {
-  padding: 0.8em;
+.card-content-a {
+  padding: 1em;
+  text-align: left;
+}
+
+.card-content-a h4 {
+  color: #c80000;
+  margin-bottom: 0.5em;
+}
+
+/* ✅ B안: 배경 이미지 오버레이 스타일 */
+.branch-featured-b {
+  padding: 2em 1em;
+  text-align: center;
+}
+
+.feature-cards-b {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.feature-card-b {
+  height: 180px;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.feature-card-b:hover {
+  transform: scale(1.02);
+}
+
+.overlay-b {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1em;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.overlay-b h4 {
+  margin-bottom: 0.3em;
+  color: #fff;
+}
+
+/* 반응형 처리 */
+@media screen and (min-width: 768px) {
+  .feature-cards-a,
+  .feature-cards-b {
+    flex-direction: row;
+  }
+
+  .feature-card-a,
+  .feature-card-b {
+    flex: 1;
+  }
+}
+
+/* ------------------------------
+   reservation modal
+------------------------------ */
+/* 예약 버튼 */
+.reserve-entry {
+  text-align: center;
+  margin: 2em 0;
+}
+.reserve-entry .btn {
+  background: #c80000;
+  color: white;
+  padding: 0.33em 3em;
+  border-radius: 15px;
   font-weight: bold;
+  font-size: 22px;
+  transition: background 0.3s;
+}
+
+/* 모달 기본 구조 */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 2em;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+}
+
+.modal-content h3 {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
+  width: 100%;
+  padding: 0.7em;
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.modal-content .submit {
+  width: 100%;
+  background-color: #c80000;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  padding: 0.8em;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.5em;
+  right: 1em;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: #aaa;
 }
 
 /* ------------------------------
@@ -296,16 +435,52 @@ ul {
 /* ------------------------------
    Location
 ------------------------------ */
-.location {
-  max-width: 1200px;
-  margin: 2em auto;
-  padding: 1em;
+.map-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
 }
 
-.map iframe {
+.map-wrap iframe {
   width: 100%;
   height: 300px;
   border: none;
+  border-radius: 10px;
+}
+
+.map-info {
+  background-color: #f5f5f5;
+  padding: 1em;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.map-info a {
+  color: #c80000;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.map-info .btn {
+  display: inline-block;
+  margin-top: 1em;
+  background-color: #c80000;
+  color: white;
+  padding: 0.5em 1em;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.location h3 {
+  margin-left : 1em;
+}
+
+.root_daum_roughmap {
+  margin: 1em 0;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 /* ------------------------------

@@ -47,27 +47,91 @@
   </div>
 </section>
 
-
-    <section class="branch-products">
-      <h3>지점 특화 안내</h3>
-      <div class="product-cards">
-        <div class="product-card">
-          <img src="images/car-insurance.jpg" alt="자동차보험" />
-          <p>자동차보험</p>
-        </div>
-        <div class="product-card">
-          <img src="images/fire-insurance.jpg" alt="화재보험" />
-          <p>화재보험 등</p>
-        </div>
-        <div class="product-card">
-          <img src="images/etc.jpg" alt="기타" />
-          <p>기타</p>
-        </div>
+<!-- ✅ A안: 상단 이미지 + 하단 설명 -->
+<section class="branch-featured-a">
+  <h3>지점 특화 보험 안내 (상단 이미지 카드)</h3>
+  <div class="feature-cards-a">
+    <div class="feature-card-a">
+      <img src="images/disease_insurance.jpg" alt="질병보험">
+      <div class="card-content-a">
+        <h4>질병보험</h4>
+        <p>각종 질환 발생 시 치료비, 입원비를 보장하는 맞춤형 보험입니다.</p>
       </div>
-    </section>
+    </div>
+    <div class="feature-card-a">
+      <img src="images/accident_insurance.jpg" alt="상해보험">
+      <div class="card-content-a">
+        <h4>상해보험</h4>
+        <p>갑작스런 사고에 대처할 수 있는 든든한 안심보장!</p>
+      </div>
+    </div>
+    <div class="feature-card-a">
+      <img src="images/care_insurance.jpg" alt="간병보험">
+      <div class="card-content-a">
+        <h4>간병보험</h4>
+        <p>노후 간병 비용에 대비할 수 있는 실속 있는 보험을 제공합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ B안: 배경 전체 이미지 + 오버레이 텍스트 -->
+<section class="branch-featured-b">
+  <h3>지점 특화 보험 안내 (배경 이미지 카드)</h3>
+  <div class="feature-cards-b">
+    <div class="feature-card-b" style="background-image: url('images/disease_insurance.jpg');">
+      <div class="overlay-b">
+        <h4>질병보험</h4>
+        <p>각종 질환 발생 시 치료비, 입원비를 보장하는 맞춤형 보험입니다.</p>
+      </div>
+    </div>
+    <div class="feature-card-b" style="background-image: url('images/accident_insurance.jpg');">
+      <div class="overlay-b">
+        <h4>상해보험</h4>
+        <p>갑작스런 사고에 대처할 수 있는 든든한 안심보장!</p>
+      </div>
+    </div>
+    <div class="feature-card-b" style="background-image: url('images/care_insurance.jpg');">
+      <div class="overlay-b">
+        <h4>간병보험</h4>
+        <p>노후 간병 비용에 대비할 수 있는 실속 있는 보험을 제공합니다.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
     <section class="quick-contact">
       <h3>상담예약 및 빠른문의</h3>
+      <!-- 예약 버튼 (어디든 배치 가능) -->
+<div class="reserve-entry">
+  <button id="open-reserve-modal" class="btn">상담 예약하기</button>
+</div>
+
+<!-- 예약 폼 모달 -->
+<div id="reserve-modal" class="modal">
+  <div class="modal-content">
+    <span id="close-modal" class="modal-close">&times;</span>
+    <h3>상담 예약 신청</h3>
+    <form action="https://formsubmit.co/jwher523@gmail.com" method="POST">
+      <input type="text" name="이름" placeholder="이름" required />
+      <input type="tel" name="연락처" placeholder="연락처 (숫자만 입력)" required />
+      <select name="상담 방법" required>
+        <option value="">상담 방법 선택</option>
+        <option value="전화">전화</option>
+        <option value="카카오톡">카카오톡</option>
+        <option value="방문">방문</option>
+      </select>
+      <input type="datetime-local" name="희망 시간" />
+      <textarea name="문의 내용" placeholder="문의 내용을 자유롭게 입력해주세요 (선택)" rows="4"></textarea>
+      <button type="submit" class="btn submit">예약 신청하기</button>
+
+      <!-- hidden 설정 -->
+      <input type="hidden" name="_next" value="https://yourdomain.com/thankyou.html">
+      <input type="hidden" name="_captcha" value="false">
+    </form>
+  </div>
+</div>
+
       <div class="contact-buttons">
         <a href="#" class="btn kakao">카카오톡 상담</a>
         <a href="tel:010-1234-5678" class="btn call">전화연결</a>
@@ -83,11 +147,37 @@
     </section>
 
     <section class="location">
-      <h3>오시는길</h3>
-      <div class="map">
-        <iframe src="https://map.naver.com/..." frameborder="0"></iframe>
-      </div>
-    </section>
+  <h3>오시는 길</h3>
+  <div class="map-wrap">
+    <!-- * 카카오맵 - 지도퍼가기 -->
+<!-- 1. 지도 노드 -->
+<div id="daumRoughmapContainer1752916005437" class="root_daum_roughmap root_daum_roughmap_landing"></div>
+
+<!--
+	2. 설치 스크립트
+	* 지도 퍼가기 서비스를 2개 이상 넣을 경우, 설치 스크립트는 하나만 삽입합니다.
+-->
+<script charset="UTF-8" class="daum_roughmap_loader_script" src="https://ssl.daumcdn.net/dmaps/map_js_init/roughmapLoader.js"></script>
+
+<!-- 3. 실행 스크립트 -->
+<script charset="UTF-8">
+	new daum.roughmap.Lander({
+		"timestamp" : "1752916005437",
+		"key" : "5vt9a3sgm25",
+		"mapWidth" : "100%",
+		"mapHeight" : "360"
+	}).render();
+</script>
+
+    <!-- 추가 정보 -->
+    <div class="map-info">
+      <p><strong>주소:</strong> 경기도 이천시 창전동 157-2 123</p>
+      <p><strong>전화:</strong> <a href="tel:010-1234-5678">010-1234-5678</a></p>
+      <p><strong>영업시간:</strong> 월~금 09:00 ~ 18:00</p>
+      <a href="https://kko.kakao.com/Cs1ClWUR0h" target="_blank" class="btn">카카오맵 길찾기</a>
+    </div>
+  </div>
+</section>
   </main>
 
   <!-- Footer -->
